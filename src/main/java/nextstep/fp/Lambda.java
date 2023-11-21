@@ -6,7 +6,9 @@ public class Lambda {
     public static void printAllOld(List<Integer> numbers) {
         System.out.println("printAllOld");
 
-        numbers.forEach(System.out::println);
+        StringBuilder sb = new StringBuilder();
+        numbers.forEach(sb::append);
+        System.out.println(sb);
     }
 
     public static void printAllLambda(List<Integer> numbers) {
@@ -27,9 +29,14 @@ public class Lambda {
     public static int sumAll(List<Integer> numbers, Conditional conditional) {
         int total = 0;
         for (int number : numbers) {
-            if (conditional.test(number)) {
-                total += number;
-            }
+            total = addNumber(conditional, number, total);
+        }
+        return total;
+    }
+
+    private static int addNumber(Conditional conditional, int number, int total) {
+        if (conditional.test(number)) {
+            total += number;
         }
         return total;
     }
