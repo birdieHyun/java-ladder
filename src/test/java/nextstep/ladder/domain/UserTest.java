@@ -25,12 +25,12 @@ class UserTest {
 
     @ParameterizedTest
     @DisplayName("사용자의 이름은 1글자 이하, 5글자 이상이면 예외를 발생시킨다.")
-    @ValueSource(strings = {"a", "abcdef"})
+    @ValueSource(strings = {"", "abcdef"})
     void createUserErrorTest(String name) {
 
         // when & then
         assertThatThrownBy(() -> new User(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("사용자의 이름은 1글자 이상, 5글자 이하이다.");
+                .hasMessageContaining("이름은 1글자 이상, 5글자 이하만 가능합니다.");
     }
 }
