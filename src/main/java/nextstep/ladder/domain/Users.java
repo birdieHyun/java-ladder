@@ -9,6 +9,7 @@ public class Users {
 
     private static final int MINIMUM_USERS_COUNT = 2;
     private static final String DELIMITER = ",";
+    private static final String BLANK = "  ";
     private final List<User> value;
 
     public Users(String value) {
@@ -28,6 +29,12 @@ public class Users {
         }
     }
 
+    public String findUsersName() {
+
+        return value.stream()
+                .map(User::findName)
+                .collect(Collectors.joining(BLANK));
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -22,5 +22,6 @@ public class LadderController {
         outputView.askLadderHeight();
         LadderHeight height = inputView.inputLadderHeight();
 
+        outputView.printResult(users);
     }
 }
