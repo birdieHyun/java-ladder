@@ -12,7 +12,7 @@ public class User {
         this.name = name;
     }
 
-    private static void validateNameLength(String name) {
+    private void validateNameLength(String name) {
         if (name.isEmpty() || name.length() > 5) {
             throw new IllegalArgumentException("이름은 1글자 이상, 5글자 이하만 가능합니다.");
         }
